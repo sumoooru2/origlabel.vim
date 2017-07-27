@@ -25,7 +25,7 @@ function! origlabel#tablabel()
 		let elem = substitute(elem, '%num', '' . (i + 1), 'g')
 		let elem = substitute(elem, '%name', '%{origlabel#elem(' . (i + 1) . ')}', 'g')
 		let elem = (tabpagenr() == i + 1 ? '%#TabLineSel#' : '%#TabLine#') . elem
-		let label .= elem
+		let label .= '%' . (i + 1) . 'T' . elem
 	endfor
 	let label .= '%#TabLineFill#%T'
 	if exists('g:origLabel#timeFormat')
